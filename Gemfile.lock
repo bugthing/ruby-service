@@ -1,0 +1,59 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    amq-protocol (2.0.1)
+    bson (4.1.1)
+    bunny (2.2.2)
+      amq-protocol (>= 2.0.1)
+    coderay (1.1.1)
+    diff-lcs (1.2.5)
+    dotenv (2.1.1)
+    foreman (0.82.0)
+      thor (~> 0.19.1)
+    json (1.8.3)
+    method_source (0.8.2)
+    mongo (2.2.5)
+      bson (~> 4.0)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    serverengine (1.5.11)
+      sigdump (~> 0.2.2)
+    sigdump (0.2.4)
+    slop (3.6.0)
+    sneakers (2.3.5)
+      bunny (~> 2.2.0)
+      serverengine (~> 1.5.11)
+      thor
+      thread (~> 0.1.7)
+    thor (0.19.1)
+    thread (0.1.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dotenv
+  foreman
+  json
+  mongo
+  pry
+  rspec
+  sneakers
+
+BUNDLED WITH
+   1.11.2
