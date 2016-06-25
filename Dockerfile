@@ -1,7 +1,7 @@
 FROM alpine
 MAINTAINER Ben Martin <benjamin247365@hotmail.com>
 
-ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base
+ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base libffi-dev
 ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler
 
 RUN apk update && \
@@ -18,5 +18,6 @@ COPY Gemfile.lock /usr/app/
 RUN bundle install
 
 COPY . /usr/app
+RUN cp .env.sample .env
 
 CMD dotenv ./bin/service
