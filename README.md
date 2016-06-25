@@ -1,6 +1,8 @@
 Container for Simple Service
 ============================
 
+[![Build Status](https://drone.io/github.com/bugthing/ruby-service/status.png)](https://drone.io/github.com/bugthing/ruby-service/latest)
+
 A simple Ruby service connected to RabbitMQ and MongoDB, contained by Docker
 
 All settings are stored here:
