@@ -4,7 +4,6 @@ require_relative '../config/setup'
 
 require 'sneakers/runner'
 require 'logger'
-require 'service'
 
 Sneakers.configure(
   amqp: SETTINGS['amqp_url'],
@@ -13,4 +12,4 @@ Sneakers.configure(
 )
 Sneakers.logger.level = Logger::INFO
 
-Sneakers::Runner.new([Service]).run
+Sneakers::Runner.new([IntServ::Workers::Service]).run

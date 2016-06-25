@@ -13,5 +13,7 @@ settings_file = File.expand_path '../settings.yml', __FILE__
 SETTINGS = YAML.load_file(settings_file)[ENVIRONMENT]
 
 if %w(development test).include? ENVIRONMENT
-    require 'pry'
+  require 'pry'
 end
+
+require 'int_serv'

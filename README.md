@@ -1,7 +1,18 @@
 Container for Simple Service
 ============================
 
-A project to try out a writing a simple service written in Ruby, contained by Docker
+A simple Ruby service connected to RabbitMQ and MongoDB, contained by Docker
+
+All settings are stored here:
+
+    config/setting.tml
+
+Development
+-----------
+
+To aid a good workflow you can use guard to auto run tests as you update the code.
+
+    $ bundle exec guard
 
 Docker
 ------
