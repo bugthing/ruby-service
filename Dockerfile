@@ -20,4 +20,4 @@ RUN bundle install
 COPY . /usr/app
 RUN cp .env.sample .env
 
-CMD dotenv ./bin/service
+CMD ./bin/service
