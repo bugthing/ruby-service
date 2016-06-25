@@ -4,8 +4,8 @@ describe IntServ::Store do
   let(:store) { described_class.new }
 
   before do
-   allow(Mongo::Client).to receive(:new).and_return(fake_mongo)
-   allow(fake_mongo).to receive(:[]).and_return(fake_table)
+    allow(Mongo::Client).to receive(:new).and_return(fake_mongo)
+    allow(fake_mongo).to receive(:[]).and_return(fake_table)
   end
   let(:fake_mongo) { spy }
   let(:fake_table) { spy }
