@@ -1,7 +1,7 @@
 Container for Simple Service
 ============================
 
-[![Build Status](https://drone.io/github.com/bugthing/ruby-service/status.png)](https://drone.io/github.com/bugthing/ruby-service/latest)
+[ ![Codeship Status for bugthing/ruby-service](https://app.codeship.com/projects/d6985ef0-ee53-0135-b1fa-7a05e9c83fff/status?branch=master)](https://app.codeship.com/projects/270906)
 
 A simple Ruby service connected to RabbitMQ and MongoDB, contained by Docker
 
@@ -18,7 +18,7 @@ Setup
 
 * Install the gems
 
-	$ bundle install
+    $ bundle install
 
 * Connect to mongodb and rabbitmq
 
@@ -26,18 +26,18 @@ Setup
 
 * Start the service
 
-	$ foreman start
+    $ foreman start
 
 Development
 -----------
 
 Run the tests like so:
 
-    $ rspec
+    $ bundle exec rspec
 
 We use rubocop, so you run that too:
 
-    $ rubocop
+    $ bundle exec rubocop
 
 To aid a good workflow you can use guard to auto run tests as you update the code.
 
@@ -70,10 +70,13 @@ You can publish a message (amoung many things) using the RabbitMQ management ui,
 	http://0.0.0.0:8080/
 	user/pass: (guest/guest)
 
-You can see whats in mongo using a gui like this container:
+You can also use rabbitmq-c tool, amqp-publish
+
+    $ amqp-publish --routing-key=events --body='{"test":"msg"}' --url='amqp://guest:guest@rabbitmq:5672/service'
+
+You can see whats in mongo using a gui, like this container:
 
 	$ docker run -d --name mongo-express --link mongodb:mongo -p 8081:8081 mongo-express
 
 	http://0.0.0.0:8081/
-
 

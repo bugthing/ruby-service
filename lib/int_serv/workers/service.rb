@@ -4,13 +4,12 @@ require 'json'
 
 module IntServ
   module Workers
-    # Sample worker that parses message and stores.
+    # Sample service class to parse message and store json
     class Service
       include Sneakers::Worker
       from_queue 'events'
 
       def work(message)
-        # #logger.log "WORKER RECEIVED: #{message}"
         json = parse_message(message)
         store_json(json)
         ack!
@@ -19,12 +18,16 @@ module IntServ
       private
 
       def store_json(json)
-        IntServ::Store.new.store(json)
+        store.store(json)
+      end
+
+      def store
+        IntServ::Store.new
       end
 
       def parse_message(message)
         return JSON.parse(message)
-      rescue TypeError => e
+      rescue TypeError, JSON::ParserError => e
         raise IntServ::Exceptions::JsonParseError, e
       end
     end

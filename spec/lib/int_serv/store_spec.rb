@@ -1,29 +1,40 @@
 require 'spec_helper'
 
 describe IntServ::Store do
-  let(:store) { described_class.new }
+  subject(:store) { described_class.new }
 
-  before do
-    allow(Mongo::Client).to receive(:new).and_return(fake_mongo)
-    allow(fake_mongo).to receive(:[]).and_return(fake_table)
+  it 'defaults to in memory adapter' do
+    expect(store.adapter).to be_an IntServ::Adapters::Stores::InMem
   end
-  let(:fake_mongo) { spy }
-  let(:fake_table) { spy }
 
-  it 'connects to the mongodb' do
-    expect(Mongo::Client).to receive(:new).with('test_mongo_url')
-    store
+  it 'settings change the default adapter' do
+    stub_const 'SETTINGS', 'store_adapter' => 'mongodb',
+                           'mongodb_uri' => 'test_mongo_url'
+    allow(::Mongo::Client).to receive(:new).and_return(double)
+
+    expect(store.adapter).to be_an IntServ::Adapters::Stores::Mongodb
   end
 
   describe '#store' do
-    subject { store.store(data) }
+    it 'stores the data in the test adapter' do
+      store.store 'aaa'
+      expect(IntServ::Adapters::Stores::InMem.new).to include 'aaa'
+    end
 
-    let(:data) { 'aaa' }
+    context 'when injecting the adapter' do
+      subject(:store) { described_class.new test_adapter }
 
-    it 'stores the data in the client' do
-      subject
-      expect(fake_mongo).to have_received(:[]).with(:messages)
-      expect(fake_table).to have_received(:insert_one).with('aaa')
+      let(:test_adapter) do
+        Class.new(Array) do
+          alias_method :store, :<<
+        end.new
+      end
+
+      it 'stores the data in the test adapter' do
+        store.store 'bbb'
+
+        expect(test_adapter).to include('bbb')
+      end
     end
   end
 end

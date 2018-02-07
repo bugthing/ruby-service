@@ -1,0 +1,13 @@
+ruby_service:
+  build: .
+  depends_on:
+    - mongodb
+    - rabbitmq
+
+mongodb:
+  image: mongo
+
+rabbitmq:
+  image: rabbitmq:3-management
+  environment:
+    RABBITMQ_DEFAULT_VHOST: service
