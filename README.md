@@ -14,19 +14,17 @@ Setup
 
 * Get the code
 
-    $ git clone <url>
+       $ git clone <url>
 
 * Install the gems
 
-    $ bundle install
+       $ bundle install
 
-* Connect to mongodb and rabbitmq
-
-    (see Docker section)
+* Connect to mongodb and rabbitmq (see Docker section below)
 
 * Start the service
 
-    $ foreman start
+       $ foreman start
 
 Development
 -----------
