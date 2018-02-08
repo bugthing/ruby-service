@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe IntServ::Workers::Service do
-  let(:worker) { described_class.new }
-  before do
-    allow(IntServ::Store).to receive(:new).and_return(fake_store)
-  end
-  let(:fake_store) { spy }
+  subject(:worker) { described_class.new }
 
   it 'receives messages from events queue' do
     expect(worker.queue.name).to eq 'events'
@@ -25,7 +21,9 @@ describe IntServ::Workers::Service do
 
       it 'parses message as json and stores' do
         subject
-        expect(fake_store).to have_received(:store).with('name' => 'dave')
+        expect(
+          IntServ::Adapters::Stores::InMem.new
+        ).to include('name' => 'dave')
       end
     end
   end

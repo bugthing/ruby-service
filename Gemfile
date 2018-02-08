@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'foreman'
 gem 'dotenv'
-gem 'sneakers'
-gem 'mongo'
+gem 'foreman'
 gem 'json'
+gem 'mongo'
+gem 'sneakers'
 
 group :test do
-  gem 'rspec'
   gem 'pry'
+  gem 'rspec'
   gem 'rubocop', require: false
 end
 
