@@ -1,7 +1,7 @@
 Container for Simple Service
 ============================
 
-[ ![Codeship Status for bugthing/ruby-service](https://app.codeship.com/projects/d6985ef0-ee53-0135-b1fa-7a05e9c83fff/status?branch=master)](https://app.codeship.com/projects/270906)
+[![Codeship Status for bugthing/ruby-service](https://app.codeship.com/projects/b216e300-83fb-0137-10a3-426947b65a56/status?branch=master)](https://app.codeship.com/projects/353160)
 
 A simple Ruby service connected to RabbitMQ and MongoDB, contained by Docker
 
