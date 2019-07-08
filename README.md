@@ -78,3 +78,6 @@ You can see whats in mongo using a gui, like this container:
 
 	http://0.0.0.0:8081/
 
+Docker Compose can help, like so:
+
+    $ docker-compose up

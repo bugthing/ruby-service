@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'dotenv'
 gem 'foreman'
 gem 'json'
+gem 'bigdecimal'
 gem 'mongo'
 gem 'sneakers'
 

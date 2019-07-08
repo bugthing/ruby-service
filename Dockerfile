@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.9.4
 MAINTAINER Ben Martin <benjamin247365@hotmail.com>
 
 ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base libffi-dev
@@ -17,7 +17,7 @@ WORKDIR /usr/app
 
 COPY Gemfile /usr/app/
 COPY Gemfile.lock /usr/app/
-RUN bundle install
+RUN bundle update --bundler
 
 COPY . /usr/app
 RUN cp .env.sample .env
