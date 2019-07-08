@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require 'sneakers'
 require 'json'
@@ -26,7 +27,7 @@ module IntServ
       end
 
       def parse_message(message)
-        return JSON.parse(message)
+        JSON.parse(message)
       rescue TypeError, JSON::ParserError => e
         raise IntServ::Exceptions::JsonParseError, e
       end

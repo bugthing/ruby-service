@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module IntServ
   module Adapters
     # Base of store adapters
